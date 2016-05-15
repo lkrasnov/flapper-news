@@ -4,7 +4,7 @@ angular.module('app.router', [])
       $stateProvider
         .state('home', {
           url: '/home',
-          templateUrl: '/home.html',
+          templateUrl: 'js/app/posts/templates/home.html',
           controller: 'MainCtrl',
           resolve: {
             postPromise: ['posts', function(posts) {
@@ -14,7 +14,7 @@ angular.module('app.router', [])
         })
         .state('posts', {
           url: '/posts/{id}',
-          templateUrl: '/posts.html',
+          templateUrl: 'js/app/posts/templates/posts.html',
           controller: 'PostsCtrl',
           resolve: {
             post: ['$stateParams', 'posts', function($stateParams, posts) {
@@ -24,7 +24,7 @@ angular.module('app.router', [])
         })
         .state('login', {
           url: '/login',
-          templateUrl: '/login.html',
+          templateUrl: 'js/app/auth/templates/login.html',
           controller: 'AuthCtrl',
           onEnter: ['$state', 'auth', function($state, auth){
             if(auth.isLoggedIn()){
@@ -34,7 +34,7 @@ angular.module('app.router', [])
         })
         .state('register', {
           url: '/register',
-          templateUrl: '/register.html',
+          templateUrl: 'js/app/auth/templates/register.html',
           controller: 'AuthCtrl',
           onEnter: ['$state', 'auth', function($state, auth){
             if(auth.isLoggedIn()){
